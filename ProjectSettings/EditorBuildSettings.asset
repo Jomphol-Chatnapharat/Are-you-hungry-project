@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/EnemyCollectingTest.unity
     guid: ba16cb5fbc2054f4e853f0c56a413019
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ce5bc9869b189b041814a3adbf27db01
+  - enabled: 1
     path: Assets/Scenes/EnemyCaptureTest.unity
     guid: ec6ee27bd12616f428d4a9c11557d85c
   - enabled: 1
