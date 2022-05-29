@@ -1,0 +1,5 @@
+PANCAKE [Frame]
+Idle 1-61
+Jump 61-83
+Attack 84-100
+Dead 100-120

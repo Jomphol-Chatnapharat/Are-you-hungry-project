@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8042048b402ff554b894285195f2b4f4, type: 3}
+  m_Name: OrderDataBase
+  m_EditorClassIdentifier: 
+  house:
+    houses:
+    - Name: Red+P
+      ColorHouse:
+        serializedVersion: 2
+        rgba: 4278190335
+      goldAdd: 0
+    - Name: Blue+B
+      ColorHouse:
+        serializedVersion: 2
+        rgba: 4278202252
+      goldAdd: 0
+    - Name: Brown+P
+      ColorHouse:
+        serializedVersion: 2
+        rgba: 4287037572
+      goldAdd: 0
+    - Name: Brown+C
+      ColorHouse:
+        serializedVersion: 2
+        rgba: 4278254079
+      goldAdd: 0
+    - Name: Red+B
+      ColorHouse:
+        serializedVersion: 2
+        rgba: 4278429696
+      goldAdd: 0
+    - Name: Red+C
+      ColorHouse:
+        serializedVersion: 2
+        rgba: 4288651258
+      goldAdd: 0
+    - Name: Blue+P
+      ColorHouse:
+        serializedVersion: 2
+        rgba: 4294924288
+      goldAdd: 0
+    - Name: Brown+B
+      ColorHouse:
+        serializedVersion: 2
+        rgba: 4294901910
+      goldAdd: 0
+    - Name: Blue+C
+      ColorHouse:
+        serializedVersion: 2
+        rgba: 4292607744
+      goldAdd: 0
+  monsters:
+    monsters:
+    - Name: Gummy Bear
+      MonsterImg: {fileID: 0}
+      MonserItem: {fileID: 11400000, guid: 2b257ad178a39b541a75605bfbf99a2b, type: 2}
+    - Name: Bread
+      MonsterImg: {fileID: 0}
+      MonserItem: {fileID: 11400000, guid: 330a8b6648ad69f4d92705b7dd763cac, type: 2}
+    - Name: Cherry
+      MonsterImg: {fileID: 0}
+      MonserItem: {fileID: 11400000, guid: dd7df441c78073d439b863085e883154, type: 2}
+  _Order:
+  - NameOrder: Brown+C -> Bread
+    _houseNumber: 3
+    _monsterNumber: 1
+    Gold: 21
+    EnemyCount: 1
+  - NameOrder: Brown+B -> Gummy Bear
+    _houseNumber: 7
+    _monsterNumber: 0
+    Gold: 16
+    EnemyCount: 1
+  - NameOrder: Blue+B -> Cherry
+    _houseNumber: 1
+    _monsterNumber: 2
+    Gold: 25
+    EnemyCount: 1

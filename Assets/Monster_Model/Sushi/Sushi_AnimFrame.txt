@@ -1,0 +1,4 @@
+Sushi [Frame]
+Idle 1-24
+Jump 25-44
+Attack 44-65

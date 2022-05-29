@@ -1,0 +1,4 @@
+EggPoarch [Frame]
+Idle 1-48
+Jump 49-64
+Attack 65-89
