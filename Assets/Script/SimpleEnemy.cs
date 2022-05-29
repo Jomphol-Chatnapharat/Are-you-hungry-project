@@ -46,7 +46,7 @@ public class SimpleEnemy : MonoBehaviour
 
     public InventoryData referenceItem;
 
-    public Animation anim;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +62,7 @@ public class SimpleEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CurArmor == 0)
+        if (CurArmor == 0)
         {
             this.gameObject.layer = 0;
 

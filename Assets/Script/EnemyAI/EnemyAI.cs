@@ -35,6 +35,8 @@ public class EnemyAI : MonoBehaviour
 
     float distance;
 
+    public Animator anim;
+
     private void Awake()
     {
         playerLoc = GameObject.Find("Player1").transform;
@@ -43,6 +45,12 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        anim.SetFloat("Speed", agent.velocity.magnitude);
+        if(enemy.CurrentHp <= 0)
+        {
+            anim.SetBool("Dead", true);
+        }
+
         canSeePlayer = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
         canAttackPlayer = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -82,16 +90,16 @@ public class EnemyAI : MonoBehaviour
                     Destroy(this.gameObject);
                 }
         }
-
         if (!canSeePlayer && !canAttackPlayer) Patroling();
         if (canSeePlayer && !canAttackPlayer) Chasing();
         if (canSeePlayer && canAttackPlayer && distance > fleeRange) Attacking();
-        if (canSeePlayer && canAttackPlayer && distance < fleeRange) Flee();
+        if (canSeePlayer && canAttackPlayer && distance < fleeRange && range) Flee();
         if (canSeePlayer && enemy.CurrentHp <= enemy.MaxHp / 2) Flee();
     }
 
     private void Patroling()
     {
+
         if (!suicide)
         {
             if (!walkPointSet) SearchWalkPoint();
@@ -131,9 +139,9 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(transform.position);
         transform.LookAt(playerLoc);
 
-
         if (!alreadyAttacked)
         {
+            anim.SetBool("Attacking", true);
             agent.speed = 0;
             Debug.Log("attacking");
             if (melee) MeleeAttack();
@@ -147,6 +155,7 @@ public class EnemyAI : MonoBehaviour
 
     void MeleeAttack()
     {
+        Debug.Log("hitting");
         GameObject player = GameObject.Find("Player1");
 
         player.GetComponent<PlayerBehavior>().currentHP -= attackDmg;
@@ -155,19 +164,19 @@ public class EnemyAI : MonoBehaviour
     void RangeAttack()
     {
         float distance = Vector3.Distance(transform.position, playerLoc.position);
-        Debug.Log("shooting");
+        //Debug.Log("shooting");
 
         if (distance > fleeRange)
         {
             shooter.GetComponent<Projectile>().Shoot();
         }
-
     }
 
     private void ResetAttack()
     {
         alreadyAttacked = false;
         agent.speed = 4;
+        anim.SetBool("Attacking", false);
     }
 
     private void OnDrawGizmosSelected()

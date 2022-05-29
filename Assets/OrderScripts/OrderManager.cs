@@ -52,8 +52,6 @@ public class OrderManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             processVolume.enabled = false;
-
-
         }
 
         if (DataBase._Order.Count != 3)
