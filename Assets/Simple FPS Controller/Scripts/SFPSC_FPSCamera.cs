@@ -41,6 +41,8 @@ public class SFPSC_FPSCamera : MonoBehaviour
     public Transform player;
     public Transform CameraPosition;
 
+    private bool _isPaused;
+
     private void Awake()
     {
         cam = this;
@@ -55,16 +57,8 @@ public class SFPSC_FPSCamera : MonoBehaviour
 
     private void Start()
     {
-
-        //if (cam != null)
-        //{
-        //    Destroy(this.gameObject);
-        //    return;
-        //}
-
-        //cam = this;
-
-        //GameObject.DontDestroyOnLoad(this.gameObject);
+        PauseMenu.OnPaused.AddListener(() => _isPaused = true);
+        PauseMenu.OnResumed.AddListener(() => _isPaused = false);
     }
 
     private float rotX = 0.0f, rotY = 0.0f;
@@ -72,6 +66,8 @@ public class SFPSC_FPSCamera : MonoBehaviour
     public float rotZ = 0.0f;
     private void Update()
     {
+        if (_isPaused) return;
+
         // Mouse input
         mouseX = Input.GetAxis("Mouse X") * sensitivity;
         mouseY = Input.GetAxis("Mouse Y") * sensitivity;
