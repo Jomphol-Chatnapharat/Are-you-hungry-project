@@ -61,13 +61,13 @@ MonoBehaviour:
       goldAdd: 0
   monsters:
     monsters:
-    - Name: Gummy Bear
+    - Name: Pancake
       MonsterImg: {fileID: 0}
       MonserItem: {fileID: 11400000, guid: 2b257ad178a39b541a75605bfbf99a2b, type: 2}
-    - Name: Bread
+    - Name: Sushi
       MonsterImg: {fileID: 0}
       MonserItem: {fileID: 11400000, guid: 330a8b6648ad69f4d92705b7dd763cac, type: 2}
-    - Name: Cherry
+    - Name: Poached Egg
       MonsterImg: {fileID: 0}
       MonserItem: {fileID: 11400000, guid: dd7df441c78073d439b863085e883154, type: 2}
   _Order:
