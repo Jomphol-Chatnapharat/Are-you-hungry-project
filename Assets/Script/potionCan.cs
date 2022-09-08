@@ -30,15 +30,15 @@ public class potionCan : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!BoxRb.isKinematic)
-        {
-            GetComponent<Outlinable>().enabled = true;
-        }
+        //if (!BoxRb.isKinematic)
+        //{
+        //    GetComponent<Outlinable>().enabled = true;
+        //}
     }
 
     private void OnMouseExit()
     {
-        GetComponent<Outlinable>().enabled = false;
+    //    GetComponent<Outlinable>().enabled = false;
     }
 
     private void OnCollisionEnter(Collision other)

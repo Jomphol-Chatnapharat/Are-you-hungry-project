@@ -12,8 +12,10 @@ public class SimpleEnemy : MonoBehaviour
     public float CurrentHp;
     public float MaxArmor;
     public float CurArmor;
+    
 
     public bool isDead = false;
+    public bool isStunned = false;
 
     public Rigidbody enemyRb;
     public int bodyDmg;
@@ -58,7 +60,6 @@ public class SimpleEnemy : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
 
     }
-
     // Update is called once per frame
     void Update()
     {

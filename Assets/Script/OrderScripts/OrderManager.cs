@@ -106,6 +106,17 @@ public class OrderManager : MonoBehaviour
         }
 
     }
+    public void DeliveryDroneCheck(InventoryData itm)
+    {
+        for (int i = 0; i <= 8; i++) // I've just used max house id, you should change it so it will be changeable with number of houses
+        {
+            if (ItemTrue(itm, i))
+            {
+                AddAndCheckOrder(itm);
+                TakeOrder.CountText.text = "+";
+            }
+        }
+    }
     public void UpdateUI()
     {
         if(OrderTake == false)

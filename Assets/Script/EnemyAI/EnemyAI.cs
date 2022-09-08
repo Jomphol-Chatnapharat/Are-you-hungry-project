@@ -105,7 +105,10 @@ public class EnemyAI : MonoBehaviour
             if (!walkPointSet) SearchWalkPoint();
 
             if (walkPointSet)
-                agent.SetDestination(walkPoint);
+                if (agent.isOnNavMesh)
+                {
+                    agent.SetDestination(walkPoint);
+                }
 
             Vector3 distantToWalkPoint = transform.position - walkPoint;
 
@@ -131,12 +134,19 @@ public class EnemyAI : MonoBehaviour
 
     private void Chasing()
     {
-        agent.SetDestination(playerLoc.position);
+        if (agent.isOnNavMesh)
+        {
+            agent.SetDestination(playerLoc.position);
+        }
     }
 
     private void Attacking()
     {
-        agent.SetDestination(transform.position);
+        if (agent.isOnNavMesh)
+        {
+            agent.SetDestination(transform.position);
+        }
+        
         transform.LookAt(playerLoc);
 
         if (!alreadyAttacked)
@@ -193,6 +203,9 @@ public class EnemyAI : MonoBehaviour
 
             Vector3 newPos = transform.position + dirToPlayer;
 
+        if (agent.isOnNavMesh)
+        {
             agent.SetDestination(newPos);
+        }
     }
 }

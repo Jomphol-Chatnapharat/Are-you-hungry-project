@@ -25,8 +25,11 @@ public class EnemyFlee : MonoBehaviour
             Vector3 dirToPlayer = transform.position - Player.transform.position;
 
             Vector3 newPos = transform.position + dirToPlayer;
-
-            _agent.SetDestination(newPos);
+            if (_agent.isOnNavMesh)
+            {
+                _agent.SetDestination(newPos);
+            }
+            
         }
     }
 }
