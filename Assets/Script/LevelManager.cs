@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
         {
             LoadScene();
 
-            other.gameObject.transform.position = new Vector3(0, 0, 0);
+            other.gameObject.transform.position = new Vector3(-20, 7, 255);
         }
 
         void LoadScene()

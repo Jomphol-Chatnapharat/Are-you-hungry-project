@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/EnemyCollectingTest.unity
+    path: 
     guid: ba16cb5fbc2054f4e853f0c56a413019
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TownTest.unity
     guid: a09c1a61f18c6a14a9da32dee71dee67
+  - enabled: 1
+    path: Assets/Scenes/ArtZoo.unity
+    guid: baafa1d4deaf7c94e8d6eecdbd5ef336
   m_configObjects: {}
