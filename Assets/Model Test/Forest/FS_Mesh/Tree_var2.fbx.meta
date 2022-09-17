@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: pasted__pasted__Puff
-    second: {fileID: 2100000, guid: 2afa929e7ab575f4a9152decdcd3e2fe, type: 2}
+    second: {fileID: 2100000, guid: 94019a53ecf5f66468facd60d923666f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

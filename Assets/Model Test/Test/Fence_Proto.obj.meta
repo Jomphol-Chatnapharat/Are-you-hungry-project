@@ -3,7 +3,17 @@ guid: 43d570aeb57a3764abf14154fc4f13f7
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence_End_Fence_MeshMat
+    second: {fileID: 2100000, guid: dde3a79ee455cdf4a91ce86868bc0012, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence_Mesh_Fence_BodyMat
+    second: {fileID: 2100000, guid: dde3a79ee455cdf4a91ce86868bc0012, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
