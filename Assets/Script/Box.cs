@@ -7,6 +7,7 @@ public class Box : MonoBehaviour
 {
     public Rigidbody BoxRb;
     public float minSpeed;
+    private BoxObj boxObjWeapon;
 
     public float maxSpeed;
     public int BoxDmg;
@@ -17,8 +18,8 @@ public class Box : MonoBehaviour
 
     void Awake()
     {
+        boxObjWeapon = GameObject.FindObjectOfType<BoxObj>();
         BoxRb = GetComponent<Rigidbody>();
-
         //TargetEnemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
@@ -31,7 +32,6 @@ public class Box : MonoBehaviour
         }
 
         Instance = this;
-
         GameObject.DontDestroyOnLoad(this.gameObject);
     }
 
@@ -42,7 +42,6 @@ public class Box : MonoBehaviour
             BoxRb.velocity = Vector3.ClampMagnitude(BoxRb.velocity, maxSpeed);
         }
     }
-
     private void OnMouseEnter()
     {
         if (!BoxRb.isKinematic)

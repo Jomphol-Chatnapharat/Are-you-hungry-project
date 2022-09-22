@@ -74,7 +74,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Awake()
     {
-        invCanvas.gameObject.SetActive(false);
+        //invCanvas.gameObject.SetActive(false);
     }
 
     void Update()
@@ -109,12 +109,15 @@ public class PlayerBehavior : MonoBehaviour
                 {
                     if (hit.collider.gameObject.GetComponent<Box>())
                     {
-                        invCanvas.gameObject.SetActive(true);
-                        onInv = true;
+                        Inventory inv = GameObject.FindObjectOfType<Inventory>();
+                        inv.PickUpWeapon("BoxObj");
+                        hit.collider.gameObject.SetActive(false);
+                        //invCanvas.gameObject.SetActive(true);
+                        //onInv = true;
 
-                        Cursor.lockState = CursorLockMode.Confined;
-                        Cursor.visible = true;
-                        postProcessVolume.enabled = true;
+                        //Cursor.lockState = CursorLockMode.Confined;
+                        //Cursor.visible = true;
+                        //postProcessVolume.enabled = true;
                     }
                 }
             }

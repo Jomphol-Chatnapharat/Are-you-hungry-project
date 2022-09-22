@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tripwire : MonoBehaviour
+public class Tripwire : Weapon
 {
     GameObject firstPoint;
     GameObject secondPoint;
@@ -71,7 +71,7 @@ public class Tripwire : MonoBehaviour
             GameObject tripwire = Instantiate(new GameObject(), lerp, Quaternion.identity);  // creating new gameobject to hold this tripwire
             firstPoint.transform.parent = tripwire.transform;
             secondPoint.transform.parent = tripwire.transform;
-            tripwire.name = "tripware"; 
+            tripwire.name = "tripwire"; 
             distance = 1 / (float)segmentsToCreate;
             for (int i = 0; i < segmentsToCreate-1; i++)
             {
@@ -85,6 +85,7 @@ public class Tripwire : MonoBehaviour
             }
             Destroy(rope);
             Destroy(gameObject);
+            
         }
 
     }

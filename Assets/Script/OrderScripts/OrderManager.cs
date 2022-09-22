@@ -23,6 +23,7 @@ public class OrderManager : MonoBehaviour
     public GameObject CanvasInv;
     public PostProcessVolume processVolume;
     public PlayerBehavior player;
+    [SerializeField] private PathFind pathcalculator;
     
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,7 @@ public class OrderManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             OrderCanvas.SetActive(true);
-            CanvasInv.SetActive(false);
+            //CanvasInv.SetActive(false);
             UpdateUI();
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
@@ -63,6 +64,7 @@ public class OrderManager : MonoBehaviour
 
     public void AddAndCheckOrder(InventoryData itm)
     {
+
          if (OrderTake && DataBase._Order[OrderSet].EnemyCount != countNow )
         {
             countNow++;
@@ -89,6 +91,7 @@ public class OrderManager : MonoBehaviour
     public void CompleteOrder()
     {
         OrderTake = false;
+        pathcalculator.CalculatePath(OrderSet);
         countNow = 0;
         player.currentGold += DataBase._Order[OrderSet].Gold;
         DataBase._Order.RemoveAt(OrderSet);
@@ -102,8 +105,9 @@ public class OrderManager : MonoBehaviour
         {
             OrderSet = i;
             OrderTake = true;
-            UpdateUI();
+            UpdateUI();            
         }
+        
 
     }
     public void DeliveryDroneCheck(InventoryData itm)
@@ -147,12 +151,13 @@ public class OrderManager : MonoBehaviour
     }
     public bool ItemTrue(InventoryData itm,int houseId)
     {
+
         if (DataBase.monsters.monsters[DataBase._Order[OrderSet]._monsterNumber].MonserItem.id == itm.id && DataBase._Order[OrderSet]._houseNumber == houseId)
         {
             return true;
-        }else
-        {
-            return false;
-        }
+        }else return false;
+
+        
+
     }
 }

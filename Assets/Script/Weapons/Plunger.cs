@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plunger : MonoBehaviour
+public class Plunger : Weapon
 {
     LineRenderer lr; // Great for showing line
     GameObject holder; // I will use this so it will be easier to manage in future

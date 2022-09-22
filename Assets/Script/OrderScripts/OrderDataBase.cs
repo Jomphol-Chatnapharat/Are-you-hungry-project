@@ -11,6 +11,7 @@ public class House
     public string Name;
     public Color32 ColorHouse;
     public int goldAdd;
+    public Vector3 position;
 }
 
 [System.Serializable]

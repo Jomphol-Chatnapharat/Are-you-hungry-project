@@ -9,7 +9,9 @@ public class invTest : MonoBehaviour
     public OrderManager _OrdManager;
     public int count;
     public bool invFull = false;
-
+    public void Start()
+    {
+    }
     public void AddToInv(InventoryData itemData)
     {
         for (int i = 0; i < Inventory.Length; i++)

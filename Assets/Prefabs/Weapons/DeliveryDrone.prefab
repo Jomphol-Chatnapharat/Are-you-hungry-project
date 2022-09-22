@@ -123,7 +123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3293173820711521076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.511, y: -0.958, z: 1.916}
+  m_LocalPosition: {x: 0.09, y: -0.64, z: 0.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae24c4de532ca5479233a09e15580a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 5d678dd04230ff94b9530a54ee968a99, type: 3}
+  inv: {fileID: 0}
 --- !u!1 &4476598325122729838
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551726761ab8ef9489713e7433d09cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droneGrabArea: {fileID: 0}
+  droneGrabArea: {fileID: 2207465394296810841}
   dropPosition: {x: -14.900003, y: -0.18000484, z: 23.990002}
   movespeed: 10
 --- !u!1 &6817441931420637982

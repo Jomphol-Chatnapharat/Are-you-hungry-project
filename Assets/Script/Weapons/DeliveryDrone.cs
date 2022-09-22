@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeliveryDrone : MonoBehaviour
+public class DeliveryDrone : Weapon
 {
 
     Camera cam;
@@ -54,7 +54,7 @@ public class DeliveryDrone : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                Destroy(gameObject);                
             }
         }
 
