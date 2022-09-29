@@ -12,26 +12,22 @@ public class BoxObj : Weapon
      boxObjInGame = GameObject.FindObjectOfType<Box>().gameObject;
     }
         
-    public void Update()
+    public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            if (boxObjInGame == null)
-            {
-                GameObject obj = Instantiate(boxObjPrefab, transform.parent.position + transform.parent.forward, Quaternion.identity);
-                boxObjInGame = obj;
-                boxObjInGame.transform.parent = null;
-                Destroy(gameObject);
-            } else
-            {               
-                boxObjInGame.transform.position = transform.parent.position + transform.parent.forward; 
-                boxObjInGame.SetActive(true);                
-                Destroy(gameObject);
-            }
-        }
-    }
-    public void StoreInInventory()
-    {
-        boxObjInGame.SetActive(false);
+        //if (Input.GetKeyDown(KeyCode.Mouse1))
+        //{
+        //    if (boxObjInGame == null)
+        //    {
+        //        GameObject obj = Instantiate(boxObjPrefab, transform.parent.position + transform.parent.forward, Quaternion.identity);
+        //        boxObjInGame = obj;
+        //        boxObjInGame.transform.parent = null;
+        //        Destroy(gameObject);
+        //    } else
+        //    {               
+        //        boxObjInGame.transform.position = transform.parent.position + transform.parent.forward; 
+        //        boxObjInGame.SetActive(true);                
+        //        Destroy(gameObject);
+        //    }
+        //}
     }
 }

@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5432273805404375687
 Transform:
   m_ObjectHideFlags: 0
@@ -261,6 +261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: f1f8fc6835b78f24d9c61eeee2869a98, type: 3}
   inv: {fileID: 0}
+  objToDrop: {fileID: 3843009178861367859, guid: de24040b2712d3342b5e3f87681f4dd0,
+    type: 3}
 --- !u!23 &226015953
 MeshRenderer:
   m_ObjectHideFlags: 0

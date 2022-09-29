@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] private Sprite icon;
     [SerializeField] protected Inventory inv;
+    [SerializeField] public GameObject objToDrop;
 
     public Sprite GetIcon => icon;
     public void Awake()
@@ -16,5 +17,10 @@ public class Weapon : MonoBehaviour
     {
 
     }
+    public virtual void Update()
+    {
+
+    }
+
 
 }

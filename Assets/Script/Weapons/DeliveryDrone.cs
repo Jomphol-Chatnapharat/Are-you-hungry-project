@@ -17,9 +17,9 @@ public class DeliveryDrone : Weapon
         drone.SetActive(false);
         droneGrabArea = transform.GetChild(1).gameObject;
     }
-    void Update()
+    public override void Update()
     {
-        
+        base.Update();
         Physics.Raycast(transform.position, transform.forward, out rayInfo);
         transform.rotation = cam.transform.rotation;
         if (rayInfo.collider != null)

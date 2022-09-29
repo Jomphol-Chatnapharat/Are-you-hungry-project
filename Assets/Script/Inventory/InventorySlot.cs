@@ -8,6 +8,7 @@ public class InventorySlot : MonoBehaviour
     [SerializeField] Weapon weapPrefab;
     public Image icon;
     public Weapon weaponHold;
+    public bool isDropped = false;
     [SerializeField] GameObject weaponHolder;
 
     private void Start()
@@ -19,11 +20,24 @@ public class InventorySlot : MonoBehaviour
     }
     private void Update()
     {
-        if (weaponHold == null && weapPrefab != null)
+        if (weaponHold != null && weaponHold.gameObject.activeSelf && Input.GetKeyDown(KeyCode.G))
+        {
+            DropWeapon();
+            isDropped = true;
+        }
+        if (weaponHold == null && weapPrefab != null && !isDropped)
         {           
          weaponHold = Instantiate(weapPrefab.gameObject, weaponHolder.transform).GetComponent<Weapon>();
          EquipItem();           
         }
+    }
+    protected void DropWeapon()
+    {
+        weaponHold.gameObject.SetActive(false);
+        GameObject obj = Instantiate(weaponHold.objToDrop, Camera.main.transform.position + Camera.main.transform.forward*3, Quaternion.identity);
+        obj.GetComponent<DroppedWeapon>().weap = weapPrefab;
+        Destroy(weaponHold.gameObject);
+        icon.sprite = null;
     }
     public void ChangeWeapon(Weapon weapon)
     {
@@ -31,6 +45,11 @@ public class InventorySlot : MonoBehaviour
         {
             weaponHold = weapon;
             icon.sprite = weapon.GetIcon;
+            if (isDropped)
+            {
+                weaponHold = Instantiate(weapPrefab.gameObject, weaponHolder.transform).GetComponent<Weapon>();
+                weaponHold.gameObject.SetActive(false);
+            }
         }
         else
         {

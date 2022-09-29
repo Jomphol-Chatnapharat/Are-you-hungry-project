@@ -110,8 +110,9 @@ public class PlayerBehavior : MonoBehaviour
                     if (hit.collider.gameObject.GetComponent<Box>())
                     {
                         Inventory inv = GameObject.FindObjectOfType<Inventory>();
-                        inv.PickUpWeapon("BoxObj");
-                        hit.collider.gameObject.SetActive(false);
+                        BoxObj box = new();
+                        inv.AddWeapon(box);
+                        //hit.collider.gameObject.SetActive(false);
                         //invCanvas.gameObject.SetActive(true);
                         //onInv = true;
 

@@ -26,8 +26,9 @@ public class Tripwire : Weapon
         rope.SetActive(false);
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
-    void Update()
+    public override void Update()
     {
+        base.Update();
         transform.parent.rotation = cam.transform.rotation;     
         Physics.Raycast(transform.parent.position, transform.parent.forward, out rayInfo);
         if (!placedfirst)

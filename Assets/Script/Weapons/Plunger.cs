@@ -20,8 +20,9 @@ public class Plunger : Weapon
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
         lr.SetPosition(1, head.gameObject.transform.position);
         lr.SetPosition(0, transform.position);
         transform.parent.rotation = cam.transform.rotation;

@@ -114,7 +114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3904221760895223061
 Transform:
   m_ObjectHideFlags: 0
@@ -146,6 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 5d678dd04230ff94b9530a54ee968a99, type: 3}
   inv: {fileID: 0}
+  objToDrop: {fileID: 3843009178861367859, guid: de24040b2712d3342b5e3f87681f4dd0,
+    type: 3}
 --- !u!1 &4476598325122729838
 GameObject:
   m_ObjectHideFlags: 0

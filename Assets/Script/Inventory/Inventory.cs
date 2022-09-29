@@ -21,13 +21,20 @@ public class Inventory : MonoBehaviour
     }
     public void AddWeapon(Weapon weapon)
     {
-        InventorySlot slot = GetFreeSlot();
+        InventorySlot slot = CheckWeapon(weapon);
         if (slot != null)
         {
             slot.ChangeWeapon(weapon);
+            slot.isDropped = false;
         }
-        else Debug.Log("Inventory is Full!");
-
+        else
+        {
+            slot = GetFreeSlot();
+            if (slot != null)
+            {
+                slot.ChangeWeapon(weapon);
+            }
+        }
     }     
     public void PickUpWeapon(string weaponType)
         {
@@ -36,7 +43,6 @@ public class Inventory : MonoBehaviour
             {
                 foreach(GameObject gameobj in weaponPrefabs)
             {
-                Debug.Log(gameobj.GetComponent<Weapon>().GetType().ToString());
                 if (gameobj.GetComponent<Weapon>().GetType().ToString() == weaponType)
                 {
                     GameObject obj = Instantiate(gameobj, weaponHolder.transform);
@@ -81,6 +87,13 @@ public class Inventory : MonoBehaviour
         item.EquipItem();
         currentlyEquipped = item;
     }
+    public void EquipWeapon()
+    {
+        InventorySlot item = slots[0];
+        currentlyEquipped.UnEquipItem();
+        item.EquipItem();
+        currentlyEquipped = item;
+    }
     void SWInventoryUpdate()
     {
         if (Input.mouseScrollDelta.y > 0)
@@ -105,5 +118,13 @@ public class Inventory : MonoBehaviour
                 EquipWeapon(slots[slots.IndexOf(currentlyEquipped) - 1]);
             }
         }
+    }
+    InventorySlot CheckWeapon(Weapon weapon)
+    {
+        foreach (InventorySlot slot in slots)
+        {
+            if (weapon.GetType().ToString() == slot.weaponHold?.GetType().ToString()) return slot;
+        }
+        return null;
     }
 }
