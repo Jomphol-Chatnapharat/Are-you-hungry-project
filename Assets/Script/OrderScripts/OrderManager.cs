@@ -90,6 +90,7 @@ public class OrderManager : MonoBehaviour
     }
     public void CompleteOrder()
     {
+        ExperienceManager.addExp.Invoke(500);
         OrderTake = false;
         pathcalculator.CalculatePath(OrderSet);
         countNow = 0;

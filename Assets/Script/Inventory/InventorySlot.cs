@@ -21,8 +21,8 @@ public class InventorySlot : MonoBehaviour
     {
         if (weaponHold == null && weapPrefab != null)
         {           
-                weaponHold = Instantiate(weapPrefab.gameObject, weaponHolder.transform).GetComponent<Weapon>();
-                UnEquipItem();           
+         weaponHold = Instantiate(weapPrefab.gameObject, weaponHolder.transform).GetComponent<Weapon>();
+         EquipItem();           
         }
     }
     public void ChangeWeapon(Weapon weapon)

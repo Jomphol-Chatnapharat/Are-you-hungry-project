@@ -208,6 +208,10 @@ public class PlayerBehavior : MonoBehaviour
         {
             currentMana = maxMana;
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ExperienceManager.addExp.Invoke(250);
+        }
 
         SetHealthImageAmount(currentHP / maxHP);
         SetManaImageAmount(currentMana / maxMana);
