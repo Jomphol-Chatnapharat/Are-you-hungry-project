@@ -59,7 +59,7 @@ public class ExperienceManager : MonoBehaviour
                 repText.enabled = false;
             });
         Vector3 temppos = repText.transform.position;
-        repText.transform.DOLocalMoveY(repText.transform.localPosition.y + 50f, 2f).SetAutoKill(false).OnComplete(() => repText.transform.position = temppos);  
+        repText.transform.DOLocalMoveY(repText.transform.localPosition.y - 50f, 2f).SetAutoKill(false).OnComplete(() => repText.transform.position = temppos);  
         
    
         if (exp >= expToLevel)
