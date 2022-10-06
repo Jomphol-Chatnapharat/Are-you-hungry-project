@@ -47,6 +47,7 @@ public class SimpleEnemy : MonoBehaviour
     public float stunTime;
 
     public InventoryData referenceItem;
+    [SerializeField] private DroppedEnemy itemToDrop;
 
     public Animator anim;
 
@@ -191,5 +192,8 @@ public class SimpleEnemy : MonoBehaviour
     public void SetHealthImageAmount(float newAmount)
     {
         fillImage.fillAmount = newAmount;
+    }
+    public void OnDestroy()
+    {
     }
 }

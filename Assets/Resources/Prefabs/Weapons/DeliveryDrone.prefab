@@ -108,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3904221760895223061}
   - component: {fileID: 6830272939371006625}
+  - component: {fileID: 723797959}
   m_Layer: 0
   m_Name: DeliveryDrone
   m_TagString: Untagged
@@ -144,10 +145,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae24c4de532ca5479233a09e15580a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 5d678dd04230ff94b9530a54ee968a99, type: 3}
-  inv: {fileID: 0}
-  objToDrop: {fileID: 3843009178861367859, guid: de24040b2712d3342b5e3f87681f4dd0,
-    type: 3}
+--- !u!114 &723797959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3293173820711521076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bf4f8176225f247a93149d42f5beb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: a41f4cc06f3f5a448981b69256b721c2, type: 3}
+  objToDrop: {fileID: 727908968, guid: de24040b2712d3342b5e3f87681f4dd0, type: 3}
+  itemType: 0
+  weapon: {fileID: 6830272939371006625}
+  giveBackOnDestroy: 1
 --- !u!1 &4476598325122729838
 GameObject:
   m_ObjectHideFlags: 0

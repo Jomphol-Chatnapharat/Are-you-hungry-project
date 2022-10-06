@@ -109,16 +109,11 @@ public class PlayerBehavior : MonoBehaviour
                 {
                     if (hit.collider.gameObject.GetComponent<Box>())
                     {
-                        Inventory inv = GameObject.FindObjectOfType<Inventory>();
-                        BoxObj box = new();
-                        inv.AddWeapon(box);
-                        //hit.collider.gameObject.SetActive(false);
-                        //invCanvas.gameObject.SetActive(true);
-                        //onInv = true;
-
-                        //Cursor.lockState = CursorLockMode.Confined;
-                        //Cursor.visible = true;
-                        //postProcessVolume.enabled = true;
+                        invCanvas.gameObject.SetActive(true);
+                        onInv = true;
+                        Cursor.lockState = CursorLockMode.Confined;
+                        Cursor.visible = true;
+                        postProcessVolume.enabled = true;
                     }
                 }
             }

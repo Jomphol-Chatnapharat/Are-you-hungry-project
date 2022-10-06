@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 5429122856516919500}
   - component: {fileID: 226015953}
   - component: {fileID: 226015954}
+  - component: {fileID: 2100337914}
   m_Layer: 0
   m_Name: TripWire
   m_TagString: Untagged
@@ -259,10 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae6cda5a00362e46a3603ee75f63d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: f1f8fc6835b78f24d9c61eeee2869a98, type: 3}
-  inv: {fileID: 0}
-  objToDrop: {fileID: 3843009178861367859, guid: de24040b2712d3342b5e3f87681f4dd0,
-    type: 3}
 --- !u!23 &226015953
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -313,6 +310,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7856380048227500519}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2100337914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856380048227500519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bf4f8176225f247a93149d42f5beb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 4968f279af92466488c309b3dd727b96, type: 3}
+  objToDrop: {fileID: 727908968, guid: de24040b2712d3342b5e3f87681f4dd0, type: 3}
+  itemType: 0
+  weapon: {fileID: 5429122856516919500}
+  giveBackOnDestroy: 1
 --- !u!1 &8761303676126648129
 GameObject:
   m_ObjectHideFlags: 0

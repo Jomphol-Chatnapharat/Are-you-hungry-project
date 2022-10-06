@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Plunger : Weapon
 {
-    LineRenderer lr; // Great for showing line
-    GameObject holder; // I will use this so it will be easier to manage in future
-    Camera cam;
-    GameObject holdObject;
-    bool holding;
-    bool shot;
-    Plunger_head head;
-    RaycastHit rayInfo;
+    private LineRenderer lr; // Great for showing line
+    private GameObject holder; // I will use this so it will be easier to manage in future
+    private Camera cam;
+    private GameObject holdObject;
+    private bool holding;
+    private bool shot;
+    private Plunger_head head;
+    private RaycastHit rayInfo;
     private void Start()
     {
         head = GetComponentInChildren<Plunger_head>();
@@ -20,9 +20,8 @@ public class Plunger : Weapon
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
-    public override void Update()
+    public void Update()
     {
-        base.Update();
         lr.SetPosition(1, head.gameObject.transform.position);
         lr.SetPosition(0, transform.position);
         transform.parent.rotation = cam.transform.rotation;

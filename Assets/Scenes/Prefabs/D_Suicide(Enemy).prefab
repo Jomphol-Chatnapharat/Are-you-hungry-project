@@ -1548,7 +1548,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2180157286707310765}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -50.04, y: 0.70000005, z: 40.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1609,6 +1609,7 @@ MonoBehaviour:
   MaxArmor: 0
   CurArmor: 0
   isDead: 0
+  isStunned: 0
   enemyRb: {fileID: 2180157286707310754}
   bodyDmg: 30
   minSpeed: 20
@@ -1622,7 +1623,8 @@ MonoBehaviour:
   unlease: 1
   stunTime: 3
   referenceItem: {fileID: 11400000, guid: dd7df441c78073d439b863085e883154, type: 2}
-  anim: {fileID: 0}
+  itemToDrop: {fileID: 0}
+  anim: {fileID: 5250997925575468218}
 --- !u!114 &2180157286707310752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1659,7 +1661,7 @@ MonoBehaviour:
   shooter: {fileID: 0}
   bombCount: 3
   countStart: 0
-  anim: {fileID: 0}
+  anim: {fileID: 5250997925575468218}
 --- !u!195 &2180157286707310767
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7198,11 +7200,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: All.EggPoarch
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3ee20d59bf1d7a047bf7d83355774cff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ee20d59bf1d7a047bf7d83355774cff, type: 3}
 --- !u!4 &2179573025102429888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3ee20d59bf1d7a047bf7d83355774cff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1852632438799178027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5250997925575468218 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 3ee20d59bf1d7a047bf7d83355774cff,
     type: 3}
   m_PrefabInstance: {fileID: 1852632438799178027}
   m_PrefabAsset: {fileID: 0}

@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Tripwire : Weapon
 {
-    GameObject firstPoint;
-    GameObject secondPoint;
-    GameObject rope;
-    bool placedfirst = false;
-    bool placedsecond = false;
-    Camera cam;
-    float lerpValue = 0;
-    float distance = 0;
-    Vector3 lerp;
+    private GameObject firstPoint;
+    private GameObject secondPoint;
+    private GameObject rope;
+    private bool placedfirst = false;
+    private bool placedsecond = false;
+    private Camera cam;
+    private float lerpValue = 0;
+    private float distance = 0;
+    private Vector3 lerp;
+    private RaycastHit rayInfo;
 
-    RaycastHit rayInfo;
+
     void Start()
     {
         firstPoint = transform.GetChild(0).gameObject;
@@ -26,9 +27,8 @@ public class Tripwire : Weapon
         rope.SetActive(false);
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
-    public override void Update()
+    public void Update()
     {
-        base.Update();
         transform.parent.rotation = cam.transform.rotation;     
         Physics.Raycast(transform.parent.position, transform.parent.forward, out rayInfo);
         if (!placedfirst)

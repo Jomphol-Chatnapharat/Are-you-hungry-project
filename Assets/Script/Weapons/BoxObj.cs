@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class BoxObj : Weapon
 {
-    [SerializeField] private GameObject boxObjPrefab;
     public GameObject boxObjInGame;
-
-    public override void Init()
+    public void Init()
     {
      boxObjInGame = GameObject.FindObjectOfType<Box>().gameObject;
     }
-        
-    public override void Update()
+    public void Update()
     {
         //if (Input.GetKeyDown(KeyCode.Mouse1))
         //{

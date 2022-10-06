@@ -185,7 +185,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109091047048621189}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.579998, y: -0.16, z: 12.040799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -247,6 +247,7 @@ MonoBehaviour:
   MaxArmor: 0
   CurArmor: 0
   isDead: 0
+  isStunned: 0
   enemyRb: {fileID: 1109091047048621190}
   bodyDmg: 30
   minSpeed: 20
@@ -260,7 +261,9 @@ MonoBehaviour:
   unlease: 1
   stunTime: 3
   referenceItem: {fileID: 11400000, guid: 2b257ad178a39b541a75605bfbf99a2b, type: 2}
-  anim: {fileID: 0}
+  itemToDrop: {fileID: 9125357638671994755, guid: 42fb615943fbc9e48bf052312e72ba54,
+    type: 3}
+  anim: {fileID: 4235845774861912279}
 --- !u!114 &4334700880401203665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +284,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  enemy: {fileID: 0}
+  enemy: {fileID: 1109091047048621191}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 30
   timeBetweenAttack: 1.5
@@ -297,7 +300,7 @@ MonoBehaviour:
   shooter: {fileID: 29377563769717799}
   bombCount: 3
   countStart: 0
-  anim: {fileID: 0}
+  anim: {fileID: 4235845774861912279}
 --- !u!195 &3053838873633363248
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6025,6 +6028,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e921d7f28492354d97758db550de479, type: 3}
+--- !u!95 &4235845774861912279 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 8e921d7f28492354d97758db550de479,
+    type: 3}
+  m_PrefabInstance: {fileID: 7755808666325579078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7793641464806118061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8e921d7f28492354d97758db550de479,

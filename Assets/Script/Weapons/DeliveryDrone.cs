@@ -5,11 +5,11 @@ using UnityEngine;
 public class DeliveryDrone : Weapon
 {
 
-    Camera cam;
-    RaycastHit rayInfo;
-    GameObject drone;
-    GameObject droneGrabArea;
-    bool areaPlaced = false;
+    private Camera cam;
+    private RaycastHit rayInfo;
+    private GameObject drone;
+    private GameObject droneGrabArea;
+    private bool areaPlaced = false;
     void Start()
     {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -17,9 +17,8 @@ public class DeliveryDrone : Weapon
         drone.SetActive(false);
         droneGrabArea = transform.GetChild(1).gameObject;
     }
-    public override void Update()
+    public void Update()
     {
-        base.Update();
         Physics.Raycast(transform.position, transform.forward, out rayInfo);
         transform.rotation = cam.transform.rotation;
         if (rayInfo.collider != null)

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2946280679300170171}
   - component: {fileID: 4610033518452237270}
   - component: {fileID: 854239361}
+  - component: {fileID: 1983242858}
   m_Layer: 8
   m_Name: PlungerWeapon
   m_TagString: Untagged
@@ -113,10 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058909d4631c14c488cef89c919b30ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 947cc501b07e5a3429f4080b21c335ae, type: 3}
-  inv: {fileID: 0}
-  objToDrop: {fileID: 3843009178861367859, guid: de24040b2712d3342b5e3f87681f4dd0,
-    type: 3}
 --- !u!120 &854239361
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -216,6 +213,23 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1983242858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2946280679300170173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bf4f8176225f247a93149d42f5beb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 947cc501b07e5a3429f4080b21c335ae, type: 3}
+  objToDrop: {fileID: 727908968, guid: de24040b2712d3342b5e3f87681f4dd0, type: 3}
+  itemType: 0
+  weapon: {fileID: 4610033518452237270}
+  giveBackOnDestroy: 1
 --- !u!1 &3001788595889363539
 GameObject:
   m_ObjectHideFlags: 0

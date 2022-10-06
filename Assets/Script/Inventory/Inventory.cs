@@ -4,90 +4,98 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] List<InventorySlot> slots;
-    [SerializeField] List<GameObject> weaponPrefabs;
-    [SerializeField] GameObject weaponHolder;
-    InventorySlot currentlyEquipped;
+    public static System.Action<Slot> PickUpItem;
+    [SerializeField] private List<InventorySlot> slots;
+    [SerializeField] private List<Weapon> weaponPrefabs;
+    [SerializeField] private GameObject weaponHolder;
+    private InventorySlot currentlyEquipped;
+
+    public bool HaveFreeSlot
+    {
+        get { if (GetFreeSlot() == null) return false;
+            else return true;
+        }
+    }
 
     public void Start()
     {
         currentlyEquipped = slots[0];
-        InitWeapons();
-        EquipWeapon(currentlyEquipped);
+        EquipItem(currentlyEquipped);
+        PickUpItem += PickUp;
     }
     public void Update()
     {
         SWInventoryUpdate();
     }
-    public void AddWeapon(Weapon weapon)
+    public void PickUp(Slot item)
     {
-        InventorySlot slot = CheckWeapon(weapon);
+        InventorySlot slot = CheckForSameItem(item);
         if (slot != null)
         {
-            slot.ChangeWeapon(weapon);
-            slot.isDropped = false;
+            Slot tempItem = Instantiate(item, weaponHolder.transform);
+            slot.AddItem(tempItem);
+            EquipItem(slot);
         }
         else
         {
             slot = GetFreeSlot();
             if (slot != null)
             {
-                slot.ChangeWeapon(weapon);
-            }
+                Slot tempItem = Instantiate(item, weaponHolder.transform);
+                slot.AddItem(tempItem);
+                EquipItem(slot);
+            }          
         }
-    }     
-    public void PickUpWeapon(string weaponType)
+            
+
+    }
+    public InventorySlot CheckForSameItem(Slot item)
+    {
+        if (item.GetComponent<Weapon>())
         {
-            InventorySlot slot = GetFreeSlot();
-            if (slot != null)
+            foreach (InventorySlot slot in slots)
             {
-                foreach(GameObject gameobj in weaponPrefabs)
-            {
-                if (gameobj.GetComponent<Weapon>().GetType().ToString() == weaponType)
+                if (slot.itemInSlot != null && slot.itemInSlot.TryGetComponent<Weapon>(out Weapon weap))
                 {
-                    GameObject obj = Instantiate(gameobj, weaponHolder.transform);
-                    AddWeapon((Weapon)obj.GetComponent(weaponType));
-                    slot.weaponHold.Init();
-                    slot.UnEquipItem();
-                    break;
+                    if (slot.itemInSlot.GetComponent<Weapon>().GetType().ToString() == item.GetComponent<Weapon>().GetType().ToString()) return slot;
                 }
             }
-            }
-            else Debug.Log("Inventory is Full!");
         }
+        return null;
+    }
+    public Weapon GetPrefab(Weapon weap)
+    {
+        foreach (Weapon weapon in  weaponPrefabs)
+        {
+            if (weap.GetType().ToString() == weapon.GetType().ToString())
+            {
+                return weapon;
+            }
+        }
+        return null;
+    }
     public void RemoveWeapon(InventorySlot slot)
     {
-        slot.ChangeWeapon(null);
+        slot.AddItem(null);
     }
     public InventorySlot GetFreeSlot()
     {
         foreach (InventorySlot slot in slots)
         {
-            if (slot.weaponHold == null)
+            if (slot.itemInSlot == null)
             {
                 return slot;
             }
-        }
+        } 
         return null;
     }
-    void InitWeapons()
-    {
-        foreach (InventorySlot slot in slots)
-        {
-            if (slot.weaponHold != null)
-            {
-               slot.weaponHold = Instantiate(slot.weaponHold.gameObject, weaponHolder.transform).GetComponent<Weapon>();
-               slot.UnEquipItem();
-            }
-        }
-    }
-    void EquipWeapon(InventorySlot item)
+    void EquipItem(InventorySlot item)
     {
         currentlyEquipped.UnEquipItem();
         item.EquipItem();
         currentlyEquipped = item;
     }
-    public void EquipWeapon()
+    public void EquipItem()
     {
         InventorySlot item = slots[0];
         currentlyEquipped.UnEquipItem();
@@ -100,31 +108,23 @@ public class Inventory : MonoBehaviour
         {
             if (slots.Count-1 == slots.IndexOf(currentlyEquipped))
             {
-                EquipWeapon(slots[0]);
+                EquipItem(slots[0]);
             }
             else
             {
-                EquipWeapon(slots[slots.IndexOf(currentlyEquipped) + 1]);
+                EquipItem(slots[slots.IndexOf(currentlyEquipped) + 1]);
             }
         }
         else if (Input.mouseScrollDelta.y < 0)
         {
             if (slots.IndexOf(currentlyEquipped) == 0)
             {
-                EquipWeapon(slots[slots.Count - 1]);
+                EquipItem(slots[slots.Count - 1]);
             }
            else
             {
-                EquipWeapon(slots[slots.IndexOf(currentlyEquipped) - 1]);
+                EquipItem(slots[slots.IndexOf(currentlyEquipped) - 1]);
             }
         }
-    }
-    InventorySlot CheckWeapon(Weapon weapon)
-    {
-        foreach (InventorySlot slot in slots)
-        {
-            if (weapon.GetType().ToString() == slot.weaponHold?.GetType().ToString()) return slot;
-        }
-        return null;
     }
 }
