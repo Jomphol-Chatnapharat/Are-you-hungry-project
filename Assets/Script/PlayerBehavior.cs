@@ -79,15 +79,11 @@ public class PlayerBehavior : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(1))
+        if (currentMana < maxMana)
         {
-            isCharging = true;
             ManaRegen();
         }
-        if (Input.GetMouseButtonUp(1))
-        {
-            isCharging = false;
-        }
+
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -131,6 +127,7 @@ public class PlayerBehavior : MonoBehaviour
                     {
                         grabbedRB.isKinematic = false;
                         grabbedRB.AddForce(cam.transform.forward * throwForce, ForceMode.VelocityChange);
+                        grabObj.layer = LayerMask.NameToLayer("Default");
                         grabbedRB = null;
 
                         if (grabObj.GetComponent<SimpleEnemy>() != null)
@@ -155,6 +152,8 @@ public class PlayerBehavior : MonoBehaviour
             {
                 if (grabbedRB)
                 {
+                    grabObj.layer = LayerMask.NameToLayer("Default");
+
                     if (grabObj.GetComponent<SimpleEnemy>() != null)
                     {
                         grabObj.GetComponent<SimpleEnemy>().unlease = true;
@@ -244,11 +243,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void ManaRegen()
     {
-        if (currentMana < maxMana || currentHP < maxHP)
-        {
-            currentMana += regenMana * Time.deltaTime;
-            currentHP += regenHP * Time.deltaTime;
-        }
+        currentMana += regenMana * Time.deltaTime;
     }
 
     public void SetHealthImageAmount(float newAmount)
@@ -267,6 +262,7 @@ public class PlayerBehavior : MonoBehaviour
 
         grabbedRB.isKinematic = true;
         grabObj = grabbedRB.gameObject;
+        grabObj.layer = LayerMask.NameToLayer("Items");
 
         if (grabObj.GetComponent<SimpleEnemy>() != null)
         {

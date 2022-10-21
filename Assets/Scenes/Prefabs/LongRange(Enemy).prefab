@@ -244,9 +244,10 @@ MonoBehaviour:
   minFall: 2
   MaxHp: 60
   CurrentHp: 0
-  MaxArmor: 30
+  MaxArmor: 0
   CurArmor: 0
   isDead: 0
+  isStunned: 0
   enemyRb: {fileID: 1084266707231806283}
   bodyDmg: 30
   minSpeed: 20
@@ -260,6 +261,7 @@ MonoBehaviour:
   unlease: 1
   stunTime: 3
   referenceItem: {fileID: 11400000, guid: 2b257ad178a39b541a75605bfbf99a2b, type: 2}
+  itemToDrop: {fileID: 0}
   anim: {fileID: 0}
 --- !u!114 &4345883210065952284
 MonoBehaviour:

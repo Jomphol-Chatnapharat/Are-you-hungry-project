@@ -69,17 +69,17 @@ public class Box : MonoBehaviour
                 }
             }
 
-            if (other.gameObject.GetComponent<SimpleEnemy>().CurrentHp <= 0)
-            {
-                invTest inventory = FindObjectOfType<invTest>();
+            //if (other.gameObject.GetComponent<SimpleEnemy>().CurrentHp <= 0)
+            //{
+            //    invTest inventory = FindObjectOfType<invTest>();
 
-                other.gameObject.GetComponent<SimpleEnemy>().StoreEnemy();
+            //    other.gameObject.GetComponent<SimpleEnemy>().StoreEnemy();
 
-                if (!inventory.invFull)
-                {
-                    BoxDmg += 10;
-                }
-            }
+            //    if (!inventory.invFull)
+            //    {
+            //        BoxDmg += 10;
+            //    }
+            //}
 
             BoxRb.velocity = Vector3.one;
         }

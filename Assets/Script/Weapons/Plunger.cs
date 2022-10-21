@@ -56,9 +56,17 @@ public class Plunger : Weapon
                     {
                         holdObject = rayInfo.collider.gameObject;
                         head.StartRetract(holdObject);
-                        holdObject.GetComponent<CapsuleCollider>().enabled = false;
+                        if (holdObject.GetComponent<CapsuleCollider>())
+                        {
+                            holdObject.GetComponent<CapsuleCollider>().enabled = false;
+                        }
+                        if (holdObject.GetComponent<BoxCollider>())
+                        {
+                            holdObject.GetComponent<BoxCollider>().enabled = false;
+                        }
                         holdObject.GetComponent<Rigidbody>().freezeRotation = true;
                         holdObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                        holdObject.layer = LayerMask.NameToLayer("Items");
                         holding = true;
                         shot = false;
 
@@ -78,7 +86,15 @@ public class Plunger : Weapon
                 head.StopGrab();
                 holdObject.GetComponent<Rigidbody>().freezeRotation = false;
                 holdObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                holdObject.GetComponent<CapsuleCollider>().enabled = true;
+                if (holdObject.GetComponent<CapsuleCollider>())
+                {
+                    holdObject.GetComponent<CapsuleCollider>().enabled = true;
+                }
+                if (holdObject.GetComponent<BoxCollider>())
+                {
+                    holdObject.GetComponent<BoxCollider>().enabled = true;
+                }
+                holdObject.layer = LayerMask.NameToLayer("Default");
                 holding = false;
             }
         }

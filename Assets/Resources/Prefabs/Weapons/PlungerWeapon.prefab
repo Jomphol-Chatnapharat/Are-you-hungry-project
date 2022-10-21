@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4610033518452237270}
   - component: {fileID: 854239361}
   - component: {fileID: 1983242858}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: PlungerWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
