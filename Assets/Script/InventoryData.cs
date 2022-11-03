@@ -7,4 +7,6 @@ public class InventoryData : ScriptableObject
 {
     public string id;
     public GameObject prefab;
+    public int Weight;
+    public Sprite iconMonster;
 }

@@ -51,7 +51,7 @@ public class Inventory : MonoBehaviour
     }
     public InventorySlot CheckForSameItem(Slot item)
     {
-        if (item.GetComponent<Weapon>())
+        if (item != null && item.GetComponent<Weapon>() != null)
         {
             foreach (InventorySlot slot in slots)
             {
@@ -108,22 +108,69 @@ public class Inventory : MonoBehaviour
         {
             if (slots.Count-1 == slots.IndexOf(currentlyEquipped))
             {
+              if ( gameObject.GetComponent<invTest>().player.grabObj != null)
+              {
+                  gameObject.GetComponent<invTest>().player.grabObj.SetActive(false);
+                  gameObject.GetComponent<invTest>().player.grabObj = null;
+                  gameObject.GetComponent<invTest>().player.grabbedRB = null;
+                    gameObject.GetComponent<invTest>().player.WeightBar.SetActive(false);
+                    Debug.Log(gameObject.GetComponent<invTest>().currentWeight.ToString());
+
+
+                }
+
+
                 EquipItem(slots[0]);
+              //  Debug.Log(slots[0].gameObject.name);
             }
             else
             {
+                if (gameObject.GetComponent<invTest>().player.grabObj != null)
+                {
+                    gameObject.GetComponent<invTest>().player.grabObj.SetActive(false);
+                    gameObject.GetComponent<invTest>().player.grabObj = null;
+                    gameObject.GetComponent<invTest>().player.grabbedRB = null;
+                    gameObject.GetComponent<invTest>().player.WeightBar.SetActive(false);
+                    Debug.Log(gameObject.GetComponent<invTest>().currentWeight.ToString());
+
+                }
                 EquipItem(slots[slots.IndexOf(currentlyEquipped) + 1]);
+              //  Debug.Log(slots[slots.IndexOf(currentlyEquipped) + 1].gameObject.name);
+               // gameObject.GetComponent<invTest>().player.grabObj.SetActive(false);
+               
             }
         }
         else if (Input.mouseScrollDelta.y < 0)
         {
             if (slots.IndexOf(currentlyEquipped) == 0)
             {
+                if (gameObject.GetComponent<invTest>().player.grabObj != null)
+                {
+                    gameObject.GetComponent<invTest>().player.grabObj.SetActive(false);
+                    gameObject.GetComponent<invTest>().player.grabObj = null;
+                    gameObject.GetComponent<invTest>().player.grabbedRB = null;
+                    gameObject.GetComponent<invTest>().player.WeightBar.SetActive(false);
+                    Debug.Log(gameObject.GetComponent<invTest>().currentWeight.ToString());
+
+                }
                 EquipItem(slots[slots.Count - 1]);
+               // Debug.Log(slots[slots.Count - 1].gameObject.name);
+
             }
-           else
+            else
             {
+                if (gameObject.GetComponent<invTest>().player.grabObj != null)
+                {
+                    gameObject.GetComponent<invTest>().player.grabObj.SetActive(false);
+                    gameObject.GetComponent<invTest>().player.grabObj = null;
+                    gameObject.GetComponent<invTest>().player.grabbedRB = null;
+                    gameObject.GetComponent<invTest>().player.WeightBar.SetActive(false);
+
+                    Debug.Log(gameObject.GetComponent<invTest>().currentWeight.ToString());
+                }
                 EquipItem(slots[slots.IndexOf(currentlyEquipped) - 1]);
+              //  Debug.Log(slots[slots.IndexOf(currentlyEquipped) - 1].gameObject.name);
+
             }
         }
     }

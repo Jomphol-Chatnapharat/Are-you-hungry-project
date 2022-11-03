@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class invTest : MonoBehaviour
 {
@@ -9,16 +10,27 @@ public class invTest : MonoBehaviour
     public OrderManager _OrdManager;
     public int count;
     public bool invFull = false;
+    public float maxWeight;
+    public float currentWeight;
+    public WeaponItem weaponOnInv;
     public void Start()
     {
     }
     public void AddToInv(InventoryData itemData)
     {
+        currentWeight = 0;
+
+
         for (int i = 0; i < Inventory.Length; i++)
         {
-            if (Inventory[i] == null)
+            if (Inventory[i] != null)
+            {
+                currentWeight += Inventory[i].Weight;
+            }
+            if (Inventory[i] == null && (currentWeight+itemData.Weight)<=maxWeight )
             {
                 Inventory[i] = itemData;
+                currentWeight += itemData.Weight;
                 Debug.Log(itemData.id.ToString());
               //  _OrdManager.AddAndCheckOrder(itemData);
 
@@ -26,6 +38,32 @@ public class invTest : MonoBehaviour
 
                 break;
             }
+        }
+    }
+    public void UpdateBar()
+    {
+        //currentWeight = 0;
+       player.WeightBar.SetActive(true);
+        player.textsBar.text = currentWeight.ToString() + "/" + maxWeight.ToString();
+        float x = currentWeight / maxWeight;
+        player.BarFilled.fillAmount = x;
+       
+        }
+    public void RotateBar()
+    {
+       // WeightBar.transform.LookAt(2 * WeightBar.transform.position - Camera.main.transform.position);
+
+        //transform.LookAt(2 * transform.position - lookingAt.position);
+    }
+    public bool CheckWeight(InventoryData itemdData)
+    {
+        if((currentWeight + itemdData.Weight) <= maxWeight)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -123,5 +161,21 @@ public class invTest : MonoBehaviour
 
             //player.HoldingObj();
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+       if(collision.gameObject.GetComponent<SimpleEnemy>() != null)
+        {
+            if (currentWeight != 0)
+            {
+                collision.gameObject.GetComponent<SimpleEnemy>().OnDamaged((int)currentWeight);
+            }
+            else
+            {
+                collision.gameObject.GetComponent<SimpleEnemy>().OnDamaged(5);
+            }
+        }
+        
     }
 }

@@ -76,7 +76,7 @@ public class SimpleEnemy : MonoBehaviour
             enemyRb.freezeRotation = false;
             AI.enabled = false;
             navMeshAgent.enabled = false;
-
+            gameObject.GetComponent<EnemyAI>().anim.enabled = false;
             isDead = true;
         }
 
@@ -172,8 +172,10 @@ public class SimpleEnemy : MonoBehaviour
             CurrentHp += CurArmor;
             CurArmor = 0;
         }
+        CurrentHp -= Damage;
+        Debug.Log("DAMAGE" + Damage.ToString());
 
-        UIManager.instance.SetDamagePopupText("-" + Damage, transform.position);
+       // UIManager.instance.SetDamagePopupText("-" + Damage, transform.position);
         SetHealthImageAmount(CurrentHp / MaxHp);
     }
 

@@ -7,6 +7,7 @@ public class WeaponItem : Slot
 {
     [SerializeField] private Weapon weapon;
     public bool giveBackOnDestroy = true;
+    
     public override void Start()
     {
         itemType = InventoryItemType.Weapon;
@@ -26,10 +27,27 @@ public class WeaponItem : Slot
     public override void Equip()
     {
         gameObject.SetActive(true);
+        if(gameObject.GetComponent<invTest>() != null && gameObject.GetComponent<invTest>().player.grabbedRB == null)
+        {
+            gameObject.GetComponent<invTest>().player.grabbedRB = gameObject.GetComponent<Rigidbody>();
+            gameObject.GetComponent<invTest>().player.grabObj = gameObject;
+            gameObject.GetComponent<invTest>().player.WeightBar.SetActive(true);
+
+        }
+
     }
     public override void UnEquip()
     {
         gameObject.SetActive(false);
+        if (gameObject.GetComponent<invTest>() != null && gameObject.GetComponent<invTest>().player.grabbedRB != null)
+        {
+            gameObject.GetComponent<invTest>().player.grabbedRB = null;
+            gameObject.GetComponent<invTest>().player.grabObj = null;
+          
+            //Debug.Log(gameObject.GetComponent<invTest>().currentWeight);
+            gameObject.GetComponent<invTest>().player.WeightBar.SetActive(false);
+
+        }
     }
     public void OnDestroy()
     {

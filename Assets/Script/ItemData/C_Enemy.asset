@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: closeRange
   prefab: {fileID: 116566537988502915, guid: 83b6ceeb4f98fc74794c35f5f3fb6b6a, type: 3}
+  Weight: 10
+  iconMonster: {fileID: 21300000, guid: 2fb83bc739407634c8fdc98ec1790b41, type: 3}

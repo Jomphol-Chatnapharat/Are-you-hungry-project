@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: longRange
   prefab: {fileID: 1109091047048621189, guid: 790f8073b1e514344904012484fd4c18, type: 3}
+  Weight: 20
+  iconMonster: {fileID: 21300000, guid: 3383bff92219f9046a45cfef97f81699, type: 3}

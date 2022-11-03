@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class BoxInventory : MonoBehaviour
 {
-    [SerializeField] private List<InventorySlot> slots;
+    [SerializeField] public List<InventorySlot> slots;
 }

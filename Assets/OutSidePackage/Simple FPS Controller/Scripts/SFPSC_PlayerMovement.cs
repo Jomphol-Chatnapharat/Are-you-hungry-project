@@ -32,7 +32,11 @@ public class SFPSC_PlayerMovement : MonoBehaviour
 
     [Header("Movement properties")]
     public float walkSpeed = 8.0f;
+    private float _WalkSpeed;
+    public float walk;
+    public float run;
     public float runSpeed = 12.0f;
+    private float _RunSpeed;
     public float changeInStageSpeed = 10.0f; // Lerp from walk to run and backwards speed
     public float maximumPlayerSpeed = 150.0f;
     [HideInInspector] public float vInput, hInput;
@@ -46,6 +50,7 @@ public class SFPSC_PlayerMovement : MonoBehaviour
 
     private SFPSC_WallRun wallRun;
     private SFPSC_GrapplingHook grapplingHook;
+    public PlayerBehavior playerss;
 
     private void Start()
     {
@@ -55,6 +60,10 @@ public class SFPSC_PlayerMovement : MonoBehaviour
 
         TryGetWallRun();
         TryGetGrapplingHook();
+        _WalkSpeed = walkSpeed;
+        _RunSpeed = runSpeed;
+        walk = walkSpeed;
+        run = runSpeed;
     }
 
     public void TryGetWallRun()
@@ -73,6 +82,8 @@ public class SFPSC_PlayerMovement : MonoBehaviour
     private Vector3 inputForce;
     private int i = 0;
     private float prevY;
+
+    
     private void FixedUpdate()
     {
         if (wandData.isCharging == false)
@@ -98,7 +109,25 @@ public class SFPSC_PlayerMovement : MonoBehaviour
 
             if (!enableMovement)
                 return;
-            inputForce = (transform.forward * vInput + transform.right * hInput).normalized * (Input.GetKey(SFPSC_KeyManager.Run) ? runSpeed : walkSpeed);
+
+            if (playerss.grabObj != null &&playerss.grabObj.gameObject.GetComponent<invTest>() != null)
+            {
+                walkSpeed = _WalkSpeed - (playerss.grabObj.gameObject.GetComponent<invTest>().currentWeight / 10);
+                runSpeed = _RunSpeed -(playerss.grabObj.gameObject.GetComponent<invTest>().currentWeight / 7);
+            }
+            else
+            {
+                walkSpeed = walk;
+                runSpeed = run;
+            }
+            if (Input.GetKey(SFPSC_KeyManager.Run)  && vInput!= 0 || hInput != 0)
+            {
+                if(isGrounded)
+                playerss.MinusMana();
+
+            }
+           
+            inputForce = (transform.forward * vInput + transform.right * hInput).normalized * (Input.GetKey(SFPSC_KeyManager.Run) && playerss.currentMana > 1 ? runSpeed : walkSpeed);
 
             if (isGrounded)
             {
