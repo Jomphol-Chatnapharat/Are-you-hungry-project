@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 813127c125d96fa4aa3e4ed827699cb2
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21202
   internalIDToNameTable:
   - first:
       74: -3100369314251171874
@@ -15,7 +15,22 @@ ModelImporter:
   - first:
       74: -4630339522487117836
     second: Die
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pancake_Mat
+    second: {fileID: 2100000, guid: a3e7be14bba8b9041ab1de8c8aefcf1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pancke_Mat
+    second: {fileID: 2100000, guid: a3e7be14bba8b9041ab1de8c8aefcf1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SyrupPancake_Mat
+    second: {fileID: 2100000, guid: d81028f56ae0f2d40ac2158d34ac9d05, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -26,6 +41,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -171,6 +187,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -182,6 +199,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
