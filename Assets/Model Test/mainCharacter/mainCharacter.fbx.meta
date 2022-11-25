@@ -33,12 +33,7 @@ ModelImporter:
   - first:
       74: 2530875414512321751
     second: Eat
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: NongeGeorge
-    second: {fileID: 2100000, guid: a5b9466c2f1bf9e4bb6119cb62fd5cee, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -101,7 +96,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
