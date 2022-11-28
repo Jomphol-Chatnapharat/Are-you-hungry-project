@@ -286,7 +286,7 @@ MonoBehaviour:
   enemy: {fileID: 1084266707231806282}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 30
-  timeBetweenAttack: 1.5
+  timeBetweenAttack: 15
   sightRange: 20
   attackRange: 15
   canSeePlayer: 0

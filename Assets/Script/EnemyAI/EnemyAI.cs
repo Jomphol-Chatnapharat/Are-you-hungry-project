@@ -37,6 +37,8 @@ public class EnemyAI : MonoBehaviour
 
     public Animator anim;
 
+    public GameObject prefab;
+
     private void Awake()
     {
         playerLoc = GameObject.Find("Player1").transform;
@@ -207,5 +209,11 @@ public class EnemyAI : MonoBehaviour
         {
             agent.SetDestination(newPos);
         }
+
+        if (melee)
+        {
+            Instantiate(prefab, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z - 1), Quaternion.identity);
+        }
     }
+
 }
