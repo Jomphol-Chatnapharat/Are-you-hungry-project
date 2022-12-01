@@ -49,7 +49,7 @@ public class PlayerBehavior : MonoBehaviour
     public Text goldCount;
 
     public static PlayerBehavior Instance;
-
+    public Animator animator;
     public GameObject can;
 
     void Start()
@@ -150,6 +150,8 @@ public class PlayerBehavior : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+               
+                animator.SetTrigger("Swap");
                 if (grabbedRB)
                 {
                     grabObj.layer = LayerMask.NameToLayer("Default");
@@ -215,13 +217,16 @@ public class PlayerBehavior : MonoBehaviour
         {
             if (potionLeft > 0)
             {
+                animator.SetTrigger("Eat");
                 currentHP += potionHeal;
                 potionLeft -= 1;
                 potionIndicator.text = "Potion: " + potionLeft;
 
-                Vector3 canPos = objectHolder.transform.position;
-                Quaternion rotation = objectHolder.transform.rotation;
-                Instantiate(can, canPos, rotation);
+                //Vector3 canPos = objectHolder.transform.position;
+                //Quaternion rotation = objectHolder.transform.rotation;
+                //Instantiate(can, canPos, rotation);
+                GameObject go = Instantiate(can, objectHolder.transform.position, Quaternion.identity) as GameObject;
+                go.transform.parent = objectHolder.transform;
             }
         }
 
@@ -229,13 +234,16 @@ public class PlayerBehavior : MonoBehaviour
         {
             if (aetherLeft > 0)
             {
+                animator.SetTrigger("Eat");//Drink animation
                 currentMana += aetherHeal;
                 aetherLeft -= 1;
                 aetherIndicator.text = "Energy Drink: " + aetherLeft;
 
-                Vector3 canPos = objectHolder.transform.position;
-                Quaternion rotation = objectHolder.transform.rotation;
-                Instantiate(can, canPos, rotation);
+                //Vector3 canPos = objectHolder.transform.position;
+                //Quaternion rotation = objectHolder.transform.rotation;
+                //Instantiate(can, canPos, rotation);
+                GameObject go = Instantiate(can, objectHolder.transform.position, Quaternion.identity) as GameObject;
+                go.transform.parent = objectHolder.transform;
             }
         }
         goldCount.text = "Gold: " + currentGold;

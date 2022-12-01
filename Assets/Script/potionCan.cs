@@ -10,13 +10,14 @@ public class potionCan : MonoBehaviour
 
     public float maxSpeed;
     public int BoxDmg;
-
+    public float holdingTime;
     private GameObject TargetEnemy;
 
     void Awake()
     {
         BoxRb = GetComponent<Rigidbody>();
-
+        BoxRb.isKinematic = true;
+        StartCoroutine(Holad());
         //TargetEnemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
@@ -57,5 +58,11 @@ public class potionCan : MonoBehaviour
 
             BoxRb.velocity = Vector3.one;
         }
+    }
+
+    IEnumerator Holad()
+    {
+        yield return new WaitForSeconds(holdingTime);
+        BoxRb.isKinematic = false;
     }
 }
