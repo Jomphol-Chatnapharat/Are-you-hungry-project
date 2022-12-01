@@ -31,7 +31,7 @@ public class SFPSC_PlayerMovement : MonoBehaviour
     private bool enableMovement = true;
 
     [Header("Movement properties")]
-    public float walkSpeed = 8.0f;
+    public float walkSpeed = 5.0f;
     public float runSpeed = 12.0f;
     public float changeInStageSpeed = 10.0f; // Lerp from walk to run and backwards speed
     public float maximumPlayerSpeed = 150.0f;
@@ -47,8 +47,11 @@ public class SFPSC_PlayerMovement : MonoBehaviour
     private SFPSC_WallRun wallRun;
     private SFPSC_GrapplingHook grapplingHook;
 
+    public bool debuffSlow;
+
     private void Start()
     {
+        debuffSlow = false;
         rb = this.GetComponent<Rigidbody>();
 
         wandData = this.GetComponent<PlayerBehavior>();
@@ -169,5 +172,17 @@ public class SFPSC_PlayerMovement : MonoBehaviour
     public void DisableMovement()
     {
         enableMovement = false;
+    }
+
+    public void BeingSlow()
+    {
+        walkSpeed = 2;
+        runSpeed = 3;
+    }
+
+    public void ClearDebuff()
+    {
+        walkSpeed = 5;
+        runSpeed = 12;
     }
 }
