@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class VendingMachine : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class VendingMachine : MonoBehaviour
     public float priceSnack;
     public float priceCan;
 
+    public TextMeshProUGUI goldCount;
+
     private void Start()
     {
         shopCanvas.gameObject.SetActive(false);
@@ -22,6 +26,11 @@ public class VendingMachine : MonoBehaviour
 
         playerCanvas = GameObject.Find("PlayerCanvas").GetComponent<Canvas>();
         playerCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+    }
+
+    private void Update()
+    {
+            goldCount.text = "Gold: " + currentGold;
     }
 
     private void OnTriggerStay(Collider other)
@@ -65,9 +74,17 @@ public class VendingMachine : MonoBehaviour
         {
             currentGold -= priceSnack;
             GameObject.Find("Player1").GetComponent<PlayerBehavior>().currentGold -= priceSnack;
-
-
             GameObject.Find("Player1").GetComponent<PlayerBehavior>().potionLeft += 1;
+        }
+    }
+
+    public void BuyCan()
+    {
+        if (currentGold >= priceCan)
+        {
+            currentGold -= priceCan;
+            GameObject.Find("Player1").GetComponent<PlayerBehavior>().currentGold -= priceCan;
+            GameObject.Find("Player1").GetComponent<PlayerBehavior>().aetherLeft += 1;
         }
     }
 }
