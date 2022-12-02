@@ -37,8 +37,6 @@ public class EnemyAI : MonoBehaviour
 
     public Animator anim;
 
-    public GameObject prefab;
-
     private void Awake()
     {
         playerLoc = GameObject.Find("Player1").transform;
@@ -153,7 +151,6 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            anim.SetBool("Attacking", false);
             anim.SetBool("Attacking", true);
             agent.speed = 0;
             Debug.Log("attacking");
@@ -189,6 +186,7 @@ public class EnemyAI : MonoBehaviour
     {
         alreadyAttacked = false;
         agent.speed = 4;
+        anim.SetBool("Attacking", false);
     }
 
     private void OnDrawGizmosSelected()
@@ -209,11 +207,5 @@ public class EnemyAI : MonoBehaviour
         {
             agent.SetDestination(newPos);
         }
-
-        if (melee)
-        {
-            Instantiate(prefab, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z - 1), Quaternion.identity);
-        }
     }
-
 }

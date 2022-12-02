@@ -35,4 +35,6 @@ public class WeaponItem : Slot
     {
         if (giveBackOnDestroy) Inventory.PickUpItem(FindObjectOfType<Inventory>()?.GetPrefab(weapon).GetComponent<Slot>());
     }
+        
+
 }

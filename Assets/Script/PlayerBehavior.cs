@@ -51,7 +51,6 @@ public class PlayerBehavior : MonoBehaviour
     public static PlayerBehavior Instance;
     public Animator animator;
     public GameObject can;
-    public GameObject snack;
 
     void Start()
     {
@@ -68,6 +67,8 @@ public class PlayerBehavior : MonoBehaviour
         currentHP = maxHP;
         currentMana = maxMana;
 
+        potionIndicator.text = "Potion: " + potionLeft;
+        aetherIndicator.text = "Energy Drink: " + aetherLeft;
     }
 
 
@@ -78,9 +79,6 @@ public class PlayerBehavior : MonoBehaviour
 
     void Update()
     {
-        potionIndicator.text = "Potion: " + potionLeft;
-        aetherIndicator.text = "Energy Drink: " + aetherLeft;
-
         if (currentMana < maxMana)
         {
             ManaRegen();
@@ -227,7 +225,7 @@ public class PlayerBehavior : MonoBehaviour
                 //Vector3 canPos = objectHolder.transform.position;
                 //Quaternion rotation = objectHolder.transform.rotation;
                 //Instantiate(can, canPos, rotation);
-                GameObject go = Instantiate(snack, objectHolder.transform.position, Quaternion.identity) as GameObject;
+                GameObject go = Instantiate(can, objectHolder.transform.position, Quaternion.identity) as GameObject;
                 go.transform.parent = objectHolder.transform;
             }
         }
