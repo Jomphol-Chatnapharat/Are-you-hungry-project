@@ -153,6 +153,7 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
+            anim.SetBool("Attacking", false);
             anim.SetBool("Attacking", true);
             agent.speed = 0;
             Debug.Log("attacking");
@@ -188,7 +189,6 @@ public class EnemyAI : MonoBehaviour
     {
         alreadyAttacked = false;
         agent.speed = 4;
-        anim.SetBool("Attacking", false);
     }
 
     private void OnDrawGizmosSelected()
