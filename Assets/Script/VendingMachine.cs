@@ -24,7 +24,7 @@ public class VendingMachine : MonoBehaviour
         shopCanvas.gameObject.SetActive(false);
         shopCam.gameObject.SetActive(false);
 
-        playerCanvas = GameObject.Find("PlayerCanvas").GetComponent<Canvas>();
+        playerCanvas = GameObject.Find("Player Canvas").GetComponent<Canvas>();
         playerCam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
@@ -44,7 +44,7 @@ public class VendingMachine : MonoBehaviour
             playerCam.gameObject.SetActive(false);
 
             GameObject.Find("Player1").GetComponent<SFPSC_PlayerMovement>().enabled = false;
-            GameObject.Find("Player1").GetComponent<MeshRenderer>().enabled = false;
+            //GameObject.Find("Player1").GetComponent<MeshRenderer>().enabled = false;
 
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
