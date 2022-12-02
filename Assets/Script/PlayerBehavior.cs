@@ -68,8 +68,6 @@ public class PlayerBehavior : MonoBehaviour
         currentHP = maxHP;
         currentMana = maxMana;
 
-        potionIndicator.text = "Potion: " + potionLeft;
-        aetherIndicator.text = "Energy Drink: " + aetherLeft;
     }
 
 
@@ -80,6 +78,9 @@ public class PlayerBehavior : MonoBehaviour
 
     void Update()
     {
+        potionIndicator.text = "Potion: " + potionLeft;
+        aetherIndicator.text = "Energy Drink: " + aetherLeft;
+
         if (currentMana < maxMana)
         {
             ManaRegen();
