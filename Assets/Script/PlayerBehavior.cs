@@ -78,8 +78,8 @@ public class PlayerBehavior : MonoBehaviour
 
     void Update()
     {
-        potionIndicator.text = "Potion: " + potionLeft;
-        aetherIndicator.text = "Energy Drink: " + aetherLeft;
+        potionIndicator.text = potionLeft.ToString();
+        aetherIndicator.text = aetherLeft.ToString();
 
         if (currentMana < maxMana)
         {
@@ -212,10 +212,15 @@ public class PlayerBehavior : MonoBehaviour
             ExperienceManager.addExp.Invoke(250);
         }
 
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            currentGold += 20;
+        }
+
         SetHealthImageAmount(currentHP / maxHP);
         SetManaImageAmount(currentMana / maxMana);
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             if (potionLeft > 0)
             {
@@ -228,11 +233,11 @@ public class PlayerBehavior : MonoBehaviour
                 //Quaternion rotation = objectHolder.transform.rotation;
                 //Instantiate(can, canPos, rotation);
                 GameObject go = Instantiate(snack, objectHolder.transform.position, Quaternion.identity) as GameObject;
-                go.transform.parent = objectHolder.transform;
+                //go.transform.parent = objectHolder.transform;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (aetherLeft > 0)
             {
@@ -245,7 +250,7 @@ public class PlayerBehavior : MonoBehaviour
                 //Quaternion rotation = objectHolder.transform.rotation;
                 //Instantiate(can, canPos, rotation);
                 GameObject go = Instantiate(can, objectHolder.transform.position, Quaternion.identity) as GameObject;
-                go.transform.parent = objectHolder.transform;
+                //go.transform.parent = objectHolder.transform;
             }
         }
         goldCount.text = "Gold: " + currentGold;

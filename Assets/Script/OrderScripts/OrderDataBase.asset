@@ -14,51 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   house:
     houses:
-    - Name: Red+P
+    - Name: 1/1
       ColorHouse:
         serializedVersion: 2
         rgba: 4278190335
       goldAdd: 0
-    - Name: Blue+B
+      position: {x: 0, y: 0, z: 0}
+    - Name: 2/1
       ColorHouse:
         serializedVersion: 2
-        rgba: 4278202252
+        rgba: 4290517789
       goldAdd: 0
-    - Name: Brown+P
+      position: {x: 0, y: 0, z: 0}
+    - Name: 3/1
       ColorHouse:
         serializedVersion: 2
-        rgba: 4287037572
+        rgba: 4291141991
       goldAdd: 0
-    - Name: Brown+C
+      position: {x: 0, y: 0, z: 0}
+    - Name: 4/1
       ColorHouse:
         serializedVersion: 2
-        rgba: 4278254079
+        rgba: 4285450737
       goldAdd: 0
-    - Name: Red+B
-      ColorHouse:
-        serializedVersion: 2
-        rgba: 4278429696
-      goldAdd: 0
-    - Name: Red+C
-      ColorHouse:
-        serializedVersion: 2
-        rgba: 4288651258
-      goldAdd: 0
-    - Name: Blue+P
-      ColorHouse:
-        serializedVersion: 2
-        rgba: 4294924288
-      goldAdd: 0
-    - Name: Brown+B
-      ColorHouse:
-        serializedVersion: 2
-        rgba: 4294901910
-      goldAdd: 0
-    - Name: Blue+C
-      ColorHouse:
-        serializedVersion: 2
-        rgba: 4292607744
-      goldAdd: 0
+      position: {x: 0, y: 0, z: 0}
   monsters:
     monsters:
     - Name: Pancake
@@ -71,18 +50,18 @@ MonoBehaviour:
       MonsterImg: {fileID: 0}
       MonserItem: {fileID: 11400000, guid: dd7df441c78073d439b863085e883154, type: 2}
   _Order:
-  - NameOrder: Brown+C -> Bread
-    _houseNumber: 3
-    _monsterNumber: 1
-    Gold: 21
-    EnemyCount: 1
-  - NameOrder: Brown+B -> Gummy Bear
-    _houseNumber: 7
-    _monsterNumber: 0
-    Gold: 16
-    EnemyCount: 1
-  - NameOrder: Blue+B -> Cherry
+  - NameOrder: Blue+B -> Sushi
     _houseNumber: 1
+    _monsterNumber: 1
+    Gold: 20
+    EnemyCount: 1
+  - NameOrder: Brown+P -> Poached Egg
+    _houseNumber: 2
     _monsterNumber: 2
-    Gold: 25
+    Gold: 28
+    EnemyCount: 1
+  - NameOrder: Brown+C -> Pancake
+    _houseNumber: 3
+    _monsterNumber: 0
+    Gold: 14
     EnemyCount: 1
