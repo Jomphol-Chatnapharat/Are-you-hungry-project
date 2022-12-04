@@ -187,4 +187,15 @@ public class SFPSC_PlayerMovement : MonoBehaviour
     {
         enableMovement = false;
     }
+    public void BeingSlow()
+    {
+        walkSpeed = 2;
+        runSpeed = 3;
+    }
+
+    public void ClearDebuff()
+    {
+        walkSpeed = 5;
+        runSpeed = 12;
+    }
 }
