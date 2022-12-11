@@ -18022,7 +18022,7 @@ MonoBehaviour:
   groundCheckerDist: 0.2
   jumpForce: 500
   jumpCooldown: 1
-  debuffSlow: 0
+  animator: {fileID: 0}
 --- !u!54 &579223166
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23263,7 +23263,7 @@ MonoBehaviour:
   groundCheckerDist: 0.2
   jumpForce: 500
   jumpCooldown: 1
-  debuffSlow: 0
+  animator: {fileID: 0}
 --- !u!54 &721390753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -47236,7 +47236,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147842473034}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 8063c9300c757284f851fe3454f5f942, type: 3}
   m_Controller: {fileID: 9100000, guid: 0c87d7a0145b94045a1e68a07ef31d14, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -47328,7 +47328,7 @@ MonoBehaviour:
   groundCheckerDist: 0.2
   jumpForce: 500
   jumpCooldown: 1
-  debuffSlow: 0
+  animator: {fileID: 1503354092}
 --- !u!54 &1503354096
 Rigidbody:
   m_ObjectHideFlags: 0
